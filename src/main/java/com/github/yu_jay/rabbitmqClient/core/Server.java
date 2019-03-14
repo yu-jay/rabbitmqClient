@@ -78,7 +78,7 @@ public class Server {
 					}
 
 					Logs.info("MQ连接" + host + ":"
-							+ port + "�ɹ�");
+							+ port + "成功");
 					break;
 				} catch (Exception e) {
 					closeConn();
