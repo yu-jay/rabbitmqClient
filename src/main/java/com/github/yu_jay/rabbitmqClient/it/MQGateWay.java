@@ -79,7 +79,7 @@ public class MQGateWay {
 	 * 向mq发送消息
 	 * 
 	 * @param routingKey
-	 *            routeingkey地址
+	 *            发布时的消息关键字
 	 * @param message
 	 *            发送内容
 	 * @return 发送是否成功, true:成功; false:失败;
