@@ -11,12 +11,10 @@ public class MutiMQGateWay {
 	static Map<String, Server> serverMap = null;
 
 	/**
-	 * 初始化与MQ的连接
-	 * 
-	 * @param mqAddress MQ地址
-	 * @param bindRelations 绑定信息
+	 * 初始化连接
 	 * @param infoLog 信息日志
 	 * @param errorLog 错误日志
+	 * @param mqServices mq服务
 	 * @throws Exception 异常
 	 */
 	public static void init(Consumer<String> infoLog, Consumer<String> errorLog,
@@ -50,11 +48,9 @@ public class MutiMQGateWay {
 
 	/**
 	 * 向mq发送消息
-	 * 
-	 * @param routingKey
-	 *            发布时的消息关键字
-	 * @param message
-	 *            发送内容
+	 * @param mqIp mq地址
+	 * @param routingKey 发布时的消息关键字
+	 * @param message 发送内容
 	 * @return 发送是否成功, true:成功; false:失败;
 	 */
 	public static Boolean publish(String mqIp, String routingKey,
