@@ -6,9 +6,8 @@ import java.util.function.Consumer;
 import com.github.yu_jay.rabbitmqClient.core.Server;
 
 /**
- * MQ���������
- * 
- * @author STJ
+ * mq 交换入口
+ * @author yujie
  *
  */
 public class MQGateWay {
@@ -16,13 +15,13 @@ public class MQGateWay {
 	static Server server = null;
 
 	/**
-	 * ��ʼ����MQ������
+	 * 初始化与MQ的连接
 	 * 
 	 * @param mqAddress
-	 *            MQ��ַ
+	 *            MQ地址ַ
 	 * @param bindRelations
-	 *            MQ�������Ͷ��а󶨹�ϵ
-	 * @throws Exception
+	 *            MQ交换机和队列绑定关系
+	 * @throws Exception 异常
 	 */
 	public static void init(MQAddress mqAddress, List<BindRelation> bindRelations) throws Exception {
 		if (server == null) {
@@ -32,13 +31,13 @@ public class MQGateWay {
 	}
 
 	/**
-	 * ��ʼ����MQ������
+	 * 初始化与MQ的连接
 	 * 
-	 * @param mqAddress
-	 * @param bindRelations
-	 * @param infoLog
-	 * @param errorLog
-	 * @throws Exception
+	 * @param mqAddress MQ地址
+	 * @param bindRelations 绑定信息
+	 * @param infoLog 信息日志
+	 * @param errorLog 错误日志
+	 * @throws Exception 异常
 	 */
 	public static void init(MQAddress mqAddress, List<BindRelation> bindRelations, Consumer<String> infoLog,
 			Consumer<String> errorLog) throws Exception {
@@ -47,13 +46,13 @@ public class MQGateWay {
 	}
 
 	/**
-	 * ��ʼ����MQ������(ͬ��)
+	 * 初始化与MQ的连接
 	 * 
-	 * @param mqAddress
-	 * @param bindRelations
-	 * @param infoLog
-	 * @param errorLog
-	 * @throws Exception
+	 * @param mqAddress MQ地址
+	 * @param bindRelations 绑定信息
+	 * @param infoLog 信息日志
+	 * @param errorLog 错误日志
+	 * @throws Exception 异常
 	 */
 	public static void synInit(MQAddress mqAddress, List<BindRelation> bindRelations, Consumer<String> infoLog,
 			Consumer<String> errorLog) throws Exception {
@@ -65,9 +64,9 @@ public class MQGateWay {
 	}
 
 	/**
-	 * ��ֹ��MQ������
+	 * 停止连接
 	 * 
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public static void stop() throws Exception {
 		if (server != null) {
@@ -77,13 +76,13 @@ public class MQGateWay {
 	}
 
 	/**
-	 * ��MQ������Ϣ
+	 * 向mq发送消息
 	 * 
 	 * @param routingKey
-	 *            ����ʱ����Ϣ�ؼ���
+	 *            routeingkey地址
 	 * @param message
-	 *            ��������Ϣ�ı�
-	 * @return �����Ƿ�ɹ�, true:�����ɹ�; false:����ʧ��;
+	 *            发送内容
+	 * @return 发送是否成功, true:成功; false:失败;
 	 */
 	public static Boolean publish(String routingKey, String message) {
 		if (server != null) {
